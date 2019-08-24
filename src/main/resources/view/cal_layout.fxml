@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
+
+<Pane id="root-pane" fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.osman.sample.calendar.application92.fxml.CalendarMainController">
+   <children>
+      <HBox alignment="CENTER" layoutX="103.0" layoutY="14.0" prefHeight="54.0" prefWidth="400.0">
+         <children>
+            <Pane prefHeight="54.0" prefWidth="90.0">
+               <children>
+                  <Rectangle fx:id="prevMonthRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="18.0" layoutX="28.0" layoutY="18.0" onMouseEntered="#onPreviousMonthButtonEnter" onMouseExited="#onPreviousMonthButtonExit" stroke="DODGERBLUE" strokeType="INSIDE" width="43.0" />
+                  <Polygon fx:id="prevMonthTriangle" fill="DODGERBLUE" layoutX="28.0" layoutY="37.0" onMouseEntered="#onPreviousMonthButtonEnter" onMouseExited="#onPreviousMonthButtonExit" rotate="270.0" scaleX="0.3" scaleY="0.3" stroke="DODGERBLUE" strokeType="INSIDE">
+                    <points>
+                      <Double fx:value="-50.0" />
+                      <Double fx:value="40.0" />
+                      <Double fx:value="50.0" />
+                      <Double fx:value="40.0" />
+                      <Double fx:value="0.0" />
+                      <Double fx:value="-60.0" />
+                    </points>
+                  </Polygon>
+               </children>
+            </Pane>
+            <Label fx:id="monthLabel" alignment="CENTER" prefHeight="54.0" prefWidth="219.0" styleClass="month-label" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" text="Month" />
+            <Pane prefHeight="54.0" prefWidth="90.0">
+               <children>
+                  <Rectangle fx:id="nextMonthRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="18.0" layoutX="18.0" layoutY="18.0" onMouseEntered="#onNextMonthButtonEnter" onMouseExited="#onNextMonthButtonExit" stroke="DODGERBLUE" strokeType="INSIDE" width="43.0" />
+                  <Polygon fx:id="nextMonthTriangle" fill="DODGERBLUE" layoutX="61.0" layoutY="37.0" onMouseEntered="#onNextMonthButtonEnter" onMouseExited="#onNextMonthButtonExit" rotate="90.0" scaleX="0.3" scaleY="0.3" scaleZ="0.3" stroke="DODGERBLUE" strokeType="INSIDE">
+                     <points>
+                        <Double fx:value="-50.0" />
+                        <Double fx:value="40.0" />
+                        <Double fx:value="50.0" />
+                        <Double fx:value="40.0" />
+                        <Double fx:value="0.0" />
+                        <Double fx:value="-60.0" />
+                     </points>
+                  </Polygon>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <Pane fx:id="centerMonthPane" layoutX="12.0" layoutY="62.0">
+         <children>
+            <GridPane hgap="2.0" prefHeight="300.0" prefWidth="570.0" vgap="2.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css">
+                     <children>
+                        <Label alignment="TOP_LEFT" text="Mon" />
+                     </children>
+                  </StackPane>
+                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="1">
+                     <children>
+                        <Label text="Tues" />
+                     </children>
+                  </StackPane>
+                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="2">
+                     <children>
+                        <Label text="Wed" />
+                     </children>
+                  </StackPane>
+                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="3">
+                     <children>
+                        <Label text="Thurs" />
+                     </children>
+                  </StackPane>
+                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="4">
+                     <children>
+                        <Label text="Fri" />
+                     </children>
+                  </StackPane>
+                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="5">
+                     <children>
+                        <Label text="Sat" />
+                     </children>
+                  </StackPane>
+                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="6">
+                     <children>
+                        <Label text="Sun" />
+                     </children>
+                  </StackPane>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
+</Pane>
