@@ -3,7 +3,7 @@ package com.osman.sample.calendar.application92.fxml;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 
@@ -49,5 +49,9 @@ public class CalendarMainController {
     void onPreviousMonthButtonExit(MouseEvent event) {
 
     }
-
+    
+    @FXML
+    public void initialize() {
+    	GridDatesInitialiser.addDaysToGrid(centerMonthPane, 8, 2019);
+    }
 }

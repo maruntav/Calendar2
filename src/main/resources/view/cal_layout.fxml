@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.Double?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Pane id="root-pane" fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.osman.sample.calendar.application92.fxml.CalendarMainController">
+<Pane id="root-pane" fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/fxstyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.osman.sample.calendar.application92.fxml.CalendarMainController">
    <children>
       <HBox alignment="CENTER" layoutX="103.0" layoutY="14.0" prefHeight="54.0" prefWidth="400.0">
          <children>
@@ -30,7 +31,7 @@
                   </Polygon>
                </children>
             </Pane>
-            <Label fx:id="monthLabel" alignment="CENTER" prefHeight="54.0" prefWidth="219.0" styleClass="month-label" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" text="Month" />
+            <Label fx:id="monthLabel" alignment="CENTER" prefHeight="54.0" prefWidth="219.0" styleClass="month-label" stylesheets="@../css/fxstyle.css" text="Month" />
             <Pane prefHeight="54.0" prefWidth="90.0">
                <children>
                   <Rectangle fx:id="nextMonthRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="18.0" layoutX="18.0" layoutY="18.0" onMouseEntered="#onNextMonthButtonEnter" onMouseExited="#onNextMonthButtonExit" stroke="DODGERBLUE" strokeType="INSIDE" width="43.0" />
@@ -50,7 +51,7 @@
       </HBox>
       <Pane fx:id="centerMonthPane" layoutX="12.0" layoutY="62.0">
          <children>
-            <GridPane hgap="2.0" prefHeight="300.0" prefWidth="570.0" vgap="2.0">
+            <GridPane prefHeight="300.0" prefWidth="570.0" styleClass="grid-pane" stylesheets="@../css/fxstyle.css">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -70,39 +71,252 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css">
+                  <StackPane>
                      <children>
-                        <Label alignment="TOP_LEFT" text="Mon" />
+                        <Label alignment="TOP_LEFT" styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Mon" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </StackPane>
+                  <StackPane GridPane.columnIndex="1">
+                     <children>
+                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Tues" />
                      </children>
                   </StackPane>
-                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="1">
+                  <StackPane GridPane.columnIndex="2">
                      <children>
-                        <Label text="Tues" />
+                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Wed" />
                      </children>
                   </StackPane>
-                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="2">
+                  <StackPane GridPane.columnIndex="3">
                      <children>
-                        <Label text="Wed" />
+                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Thurs" />
                      </children>
                   </StackPane>
-                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="3">
+                  <StackPane GridPane.columnIndex="4">
                      <children>
-                        <Label text="Thurs" />
+                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Fri" />
                      </children>
                   </StackPane>
-                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="4">
+                  <StackPane GridPane.columnIndex="5">
                      <children>
-                        <Label text="Fri" />
+                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sat" />
                      </children>
                   </StackPane>
-                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="5">
+                  <StackPane GridPane.columnIndex="6">
                      <children>
-                        <Label text="Sat" />
+                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sun" />
                      </children>
                   </StackPane>
-                  <StackPane styleClass="grid-day-row" stylesheets="@../../../FXMLSample32932/src/fxstyle.css" GridPane.columnIndex="6">
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <children>
-                        <Label text="Sun" />
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane layoutX="10.0" layoutY="53.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="6">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                     <children>
+                        <Label />
+                     </children>
+                  </StackPane>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                     <children>
+                        <Label />
                      </children>
                   </StackPane>
                </children>

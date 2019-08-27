@@ -1,39 +1,60 @@
 package com.osman.sample.calendar.application92.date;
 
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
 
 public class MonthInfo {
-	private GregorianCalendar firstDayOfmonth; //0 - 11, from jan to dec
-	private int month;
-	private int year;
+//	private int month; //1 - 12, from Jan to Dec
+//	private int year;
+	LocalDate date;
 	public MonthInfo(int month, int year) {
-		this.month = month;
-		this.year = year;
-		firstDayOfmonth = new GregorianCalendar(year - 1900, month, 1);
+//		this.month = month;
+//		this.year = year;
+		date = LocalDate.of(year, month, 1);
+	}
+	
+	public MonthInfo() {
+//		this.month = now.getMonthValue();
+//		this.year = now.getYear();
+		date = LocalDate.now();
 	}
 	
 	public String getMonthName() {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM");
-		return simpleDateFormat.format(firstDayOfmonth.getTime());
+//		LocalDate date = LocalDate.of(year, month, 1);
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM");
+		return date.format(dateTimeFormatter);
 	}
 	
 	public int getNumOfDays() {
-		GregorianCalendar date = (GregorianCalendar) firstDayOfmonth.clone();
-		date.add(Calendar.MONTH, 1);
-		date.add(Calendar.DAY_OF_YEAR, -1);
-		return date.get(Calendar.DAY_OF_MONTH);
+//		LocalDate date = LocalDate.of(year, month, 1);
+		return date.lengthOfMonth();
+	}
+	
+	public int getMonth() {
+		return date.getMonthValue();
+	}
+	
+	public int getYear() {
+		return date.getYear();
+	}
+	
+	public int getDayOfMonth() {
+		return date.getDayOfMonth();
 	}
 	
 	public int getFirstMonday() {
-		GregorianCalendar date = (GregorianCalendar) firstDayOfmonth.clone();
-		date.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-		date.set(Calendar.DAY_OF_WEEK_IN_MONTH, 1);
-		return date.get(Calendar.DAY_OF_MONTH);
-//		while(date.get(Calendar.DAY_OF_WEEK) != Calendar.MONDAY) {
-//			date.add(Calendar.DAY_OF_YEAR, 1);
-//		}
-//		return date.get(Calendar.DAY_OF_MONTH);
-		
+		LocalDate date = LocalDate.of(getYear(), getMonth(), 1);
+		while(date.getDayOfWeek() != DayOfWeek.MONDAY) {
+			date = date.plusDays(1);
+		}
+		return date.getDayOfMonth();
+	}
+	
+	public LocalDate getFirstMondayForMonthCalendar() {
+		LocalDate date = LocalDate.of(getYear(), getMonth(), 1);
+		while(date.getDayOfWeek() != DayOfWeek.MONDAY) {
+			date = date.minusDays(1);
+		}
+		return date;
 	}
 }

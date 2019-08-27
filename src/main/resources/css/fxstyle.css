@@ -1,0 +1,33 @@
+#root-pane {
+	-fx-background-color: #2e0053;
+}
+
+.grid-pane {
+	-fx-background-color: green;
+}
+
+.grid-pane > * {
+	-fx-background-color: red;
+	/*-fx-border-color: orange;
+	-fx-border-width: 1;*/
+}
+
+.grid-pane > *:hover {
+	-fx-background-color: blue;
+}
+
+.grid-pane > *, .month-label{
+	-fx-text-fill: #fcffd7;
+}
+
+.first-row-days-of-week {
+	-fx-text-fill: white;
+}
+
+.label-different-month {
+	-fx-text-fill: orange;
+}
+
+.grid-day-row > * > * {
+	-fx-alignment: center;
+}
