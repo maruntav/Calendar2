@@ -8,8 +8,12 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
 public class GridDatesInitialiser {
-	public static void addDaysToGrid(Pane monthGrid, int month, int year) {
-		GridPane grid = (GridPane) monthGrid.getChildren().get(0);
+	public static void addDaysToGrid(Pane monthsPane[], int month, int year) {
+		addDayToGrid(monthsPane[0], month, year);
+	}
+	
+	public static void addDayToGrid(Pane pane, int month, int year) {
+		GridPane grid = (GridPane) pane.getChildren().get(0);
 		MonthInfo monthInfo = new MonthInfo(month, year);
 		LocalDate currentDay = monthInfo.getFirstMondayForMonthCalendar();
 		boolean addSixthRow = currentDay.plusDays(34).getDayOfMonth() > 10;

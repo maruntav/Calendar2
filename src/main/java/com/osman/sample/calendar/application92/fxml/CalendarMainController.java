@@ -92,14 +92,14 @@ public class CalendarMainController {
     @FXML
     public void initialize() {
     	LocalDateTime now = LocalDateTime.now();
-    	GridDatesInitialiser.addDaysToGrid(centerMonthPane, now.getMonthValue(), now.getYear());
+    	GridDatesInitialiser.addDaysToGrid(new Pane[] {centerMonthPane}, now.getMonthValue(), now.getYear());
     	MonthYearLabelUtils.initMonthLabel(monthYearLabel, now.getMonthValue(), now.getYear());
     	setCurrentMonth(now.getMonthValue());
     	setCurrentYear(now.getYear());
     }
     
     public void refreshMonth() {
-    	GridDatesInitialiser.addDaysToGrid(centerMonthPane, currentMonth, currentYear);
+    	GridDatesInitialiser.addDaysToGrid(new Pane[] {centerMonthPane}, currentMonth, currentYear);
     	MonthYearLabelUtils.initMonthLabel(monthYearLabel, currentMonth, currentYear);
     }
 }
