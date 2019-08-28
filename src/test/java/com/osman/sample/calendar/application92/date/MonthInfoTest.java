@@ -1,5 +1,6 @@
 package com.osman.sample.calendar.application92.date;
 
+import org.assertj.core.internal.bytebuddy.matcher.CollectionErasureMatcher;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -61,5 +62,31 @@ public class MonthInfoTest {
 				MonthInfo monthInfo = new MonthInfo(input.get(index), 2018);
 				assertEquals(expected.get(index).intValue(), monthInfo.getMonth());
 			});
+	}
+	
+	@Test
+	public void testGetPreviousMonth() {
+		List<Integer> expected = IntStream.range(1, 13).boxed().collect(Collectors.toList()).stream()
+				.map(num -> num - 1).collect(Collectors.toList());
+		expected.remove(0);
+		expected.add(0, 12);
+		IntStream.range(1, 13).boxed().collect(Collectors.toList()).stream()
+		.forEach(input -> {
+			MonthInfo monthInfo = new MonthInfo(input, 2019);
+			assertEquals(expected.get(input - 1).intValue(), monthInfo.getPreviousMonth().getMonthValue());
+		});
+	}
+	
+	@Test
+	public void testGetNextMonth() {
+		List<Integer> expected = IntStream.range(1, 13).boxed().collect(Collectors.toList()).stream()
+				.map(num -> num + 1).collect(Collectors.toList());
+		expected.remove(expected.size() - 1);
+		expected.add(1);
+		IntStream.range(1, 13).boxed().collect(Collectors.toList()).stream()
+		.forEach(input -> {
+			MonthInfo monthInfo = new MonthInfo(input, 2019);
+			assertEquals(expected.get(input - 1).intValue(), monthInfo.getNextMonth().getMonthValue());
+		});
 	}
 }

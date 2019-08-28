@@ -1,14 +1,18 @@
 package com.osman.sample.calendar.application92.fxml;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import com.osman.sample.calendar.application92.date.MonthInfo;
 import com.sun.javafx.scene.control.skin.LabeledText;
 
 public class CalendarMainController {
@@ -30,9 +34,18 @@ public class CalendarMainController {
 
     @FXML
     private Polygon nextMonthTriangle;
+    
+    @FXML
+    private Pane threeMonthsWrapperPane;
 
     @FXML
     private Pane centerMonthPane;
+    
+    @FXML
+    private Pane monthBeforePane;
+
+    @FXML
+    private Pane monthAfterPane;
     
     private int currentMonth;
     private int currentYear;
@@ -44,9 +57,7 @@ public class CalendarMainController {
     
     @FXML
     void onNextMonthButtonClick(MouseEvent event) {
-    	setCurrentMonth(currentMonth < 12 ? currentMonth + 1 : 1);
-    	if(currentMonth == 1) currentYear++;
-    	refreshMonth();
+    	moveMonth("next");
     }
 
     @FXML
@@ -56,7 +67,7 @@ public class CalendarMainController {
     
     @FXML
     void onPreviousMonthButtonClick(MouseEvent event) {
-
+    	moveMonth("previous");
     }
 
     @FXML
@@ -96,6 +107,29 @@ public class CalendarMainController {
     	MonthYearLabelUtils.initMonthLabel(monthYearLabel, now.getMonthValue(), now.getYear());
     	setCurrentMonth(now.getMonthValue());
     	setCurrentYear(now.getYear());
+    }
+    
+    public void moveMonth(String direction) {
+    	Pane updatePane = direction == "next" ? monthBeforePane : monthAfterPane;
+    	GridDatesInitialiser.addDayToGrid(updatePane, currentMonth, currentYear);
+    	threeMonthsWrapperPane.setTranslateX(direction == "next" ? 650 : -650);
+    	updateMonthAndYear(direction);
+    	GridDatesInitialiser.addDayToGrid(centerMonthPane, currentMonth, currentYear);
+    	translateMonthWrapper(direction == "next" ? "right" : "left");
+    	MonthYearLabelUtils.initMonthLabel(monthYearLabel, currentMonth, currentYear);
+    }
+    
+    public void updateMonthAndYear(String direction) {
+    	MonthInfo monthInfo = new MonthInfo(currentMonth, currentYear);
+    	LocalDate nextDate = direction == "next" ? monthInfo.getNextMonth() : monthInfo.getPreviousMonth();
+    	setCurrentMonth(nextDate.getMonthValue());
+    	setCurrentYear(nextDate.getYear());
+    }
+    
+    public void translateMonthWrapper(String direction) {
+    	TranslateTransition transition = new TranslateTransition(Duration.millis(500), threeMonthsWrapperPane);
+    	transition.setByX(direction == "left" ? 650 : -650);
+    	transition.play();
     }
     
     public void refreshMonth() {

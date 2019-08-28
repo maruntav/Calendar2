@@ -58,4 +58,11 @@ public class MonthInfo {
 		return date;
 	}
 	
+	public LocalDate getPreviousMonth() {
+		return date.minusMonths(1);
+	}
+	
+	public LocalDate getNextMonth() {
+		return date.plusMonths(1);
+	}
 }

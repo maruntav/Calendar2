@@ -16,7 +16,7 @@ public class GridDatesInitialiser {
 		GridPane grid = (GridPane) pane.getChildren().get(0);
 		MonthInfo monthInfo = new MonthInfo(month, year);
 		LocalDate currentDay = monthInfo.getFirstMondayForMonthCalendar();
-		boolean addSixthRow = currentDay.plusDays(34).getDayOfMonth() > 10;
+		boolean addSixthRow = currentDay.plusDays(35).getDayOfMonth() > 10;
 		String cssPath = GridDatesInitialiser.class.getClassLoader().getResource("css/fxstyle.css").toExternalForm();
 		for(int i = 7; i < 49; i++) {
 			StackPane stackPane = (StackPane) grid.getChildren().get(i);

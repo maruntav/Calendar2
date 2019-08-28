@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.shape.Rectangle?>
 
-<Pane id="root-pane" fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/fxstyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.osman.sample.calendar.application92.fxml.CalendarMainController">
+<Pane id="root-pane" fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" stylesheets="@../css/fxstyle.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.osman.sample.calendar.application92.fxml.CalendarMainController">
    <children>
       <HBox alignment="CENTER" layoutX="103.0" layoutY="14.0" prefHeight="54.0" prefWidth="400.0">
          <children>
@@ -49,278 +49,830 @@
             </Pane>
          </children>
       </HBox>
-      <Pane fx:id="centerMonthPane" layoutX="12.0" layoutY="62.0">
+      <Pane fx:id="threeMonthsWrapperPane" layoutX="-610.0" layoutY="95.0">
          <children>
-            <GridPane prefHeight="300.0" prefWidth="570.0" styleClass="grid-pane" stylesheets="@../css/fxstyle.css">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
+            <Pane fx:id="centerMonthPane" layoutX="650.0">
                <children>
-                  <StackPane>
+                  <GridPane prefHeight="300.0" prefWidth="570.0" styleClass="grid-pane" stylesheets="@../css/fxstyle.css">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <Label alignment="TOP_LEFT" styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Mon" />
+                        <StackPane>
+                           <children>
+                              <Label alignment="TOP_LEFT" styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Mon" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="1">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Tues" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="2">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Wed" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="3">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Thurs" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="4">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Fri" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="5">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sat" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="6">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sun" />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
                      </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </StackPane>
-                  <StackPane GridPane.columnIndex="1">
-                     <children>
-                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Tues" />
-                     </children>
-                  </StackPane>
-                  <StackPane GridPane.columnIndex="2">
-                     <children>
-                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Wed" />
-                     </children>
-                  </StackPane>
-                  <StackPane GridPane.columnIndex="3">
-                     <children>
-                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Thurs" />
-                     </children>
-                  </StackPane>
-                  <StackPane GridPane.columnIndex="4">
-                     <children>
-                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Fri" />
-                     </children>
-                  </StackPane>
-                  <StackPane GridPane.columnIndex="5">
-                     <children>
-                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sat" />
-                     </children>
-                  </StackPane>
-                  <StackPane GridPane.columnIndex="6">
-                     <children>
-                        <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sun" />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="6">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
-                  <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
-                     <children>
-                        <Label />
-                     </children>
-                  </StackPane>
+                  </GridPane>
                </children>
-            </GridPane>
+            </Pane>
+            <Pane fx:id="monthBeforePane">
+               <children>
+                  <GridPane prefHeight="300.0" prefWidth="570.0" styleClass="grid-pane" stylesheets="@../css/fxstyle.css">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <StackPane>
+                           <children>
+                              <Label alignment="TOP_LEFT" styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Mon" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="1">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Tues" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="2">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Wed" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="3">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Thurs" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="4">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Fri" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="5">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sat" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="6">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sun" />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+            <Pane fx:id="monthAfterPane" layoutX="1300.0">
+               <children>
+                  <GridPane prefHeight="300.0" prefWidth="570.0" styleClass="grid-pane" stylesheets="@../css/fxstyle.css">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <StackPane>
+                           <children>
+                              <Label alignment="TOP_LEFT" styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Mon" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="1">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Tues" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="2">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Wed" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="3">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Thurs" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="4">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Fri" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="5">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sat" />
+                           </children>
+                        </StackPane>
+                        <StackPane GridPane.columnIndex="6">
+                           <children>
+                              <Label styleClass="first-row-days-of-week" stylesheets="@../css/fxstyle.css" text="Sun" />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="4">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                        <StackPane onMouseClicked="#onStackPaneDayClick" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6">
+                           <children>
+                              <Label />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
