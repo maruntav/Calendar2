@@ -2,14 +2,8 @@
 	-fx-background-color: #2e0053;
 }
 
-.grid-pane {
-	-fx-background-color: green;
-}
-
 .grid-pane > * {
 	-fx-background-color: red;
-	/*-fx-border-color: orange;
-	-fx-border-width: 1;*/
 }
 
 .grid-pane > *:hover {
@@ -26,6 +20,16 @@
 
 .label-different-month {
 	-fx-text-fill: orange;
+}
+
+.grid-stack-pane-sixth-row-empty {
+	-fx-background-color: inherit;
+	-fx-border-color: inherit;
+}
+
+.grid-stack-pane-sixth-row-empty:hover {
+	-fx-background-color: inherit;
+	-fx-border-color: inherit;
 }
 
 .grid-day-row > * > * {

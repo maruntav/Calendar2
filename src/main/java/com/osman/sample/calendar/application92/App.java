@@ -1,7 +1,6 @@
 package com.osman.sample.calendar.application92;
 
 import javafx.application.Application;
-import com.osman.sample.calendar.application92.fxml.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;

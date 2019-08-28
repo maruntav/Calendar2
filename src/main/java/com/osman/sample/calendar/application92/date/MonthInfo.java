@@ -2,31 +2,31 @@ package com.osman.sample.calendar.application92.date;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class MonthInfo {
-//	private int month; //1 - 12, from Jan to Dec
-//	private int year;
 	LocalDate date;
 	public MonthInfo(int month, int year) {
-//		this.month = month;
-//		this.year = year;
 		date = LocalDate.of(year, month, 1);
 	}
 	
+	public MonthInfo(String month, int year) {
+		this(Month.valueOf(month.toUpperCase()).getValue(), year);
+	}
+	
 	public MonthInfo() {
-//		this.month = now.getMonthValue();
-//		this.year = now.getYear();
 		date = LocalDate.now();
 	}
 	
 	public String getMonthName() {
-//		LocalDate date = LocalDate.of(year, month, 1);
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM");
 		return date.format(dateTimeFormatter);
 	}
 	
 	public int getNumOfDays() {
-//		LocalDate date = LocalDate.of(year, month, 1);
 		return date.lengthOfMonth();
 	}
 	
@@ -57,4 +57,5 @@ public class MonthInfo {
 		}
 		return date;
 	}
+	
 }

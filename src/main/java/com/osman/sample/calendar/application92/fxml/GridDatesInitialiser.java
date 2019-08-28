@@ -12,22 +12,27 @@ public class GridDatesInitialiser {
 		GridPane grid = (GridPane) monthGrid.getChildren().get(0);
 		MonthInfo monthInfo = new MonthInfo(month, year);
 		LocalDate currentDay = monthInfo.getFirstMondayForMonthCalendar();
-		int firstDayMonth = currentDay.getMonthValue();
-		int currentMonth = currentDay.getDayOfMonth() == 1 ? firstDayMonth : firstDayMonth + 1;
-//		boolean rowLimit = currentDay.plusDays(35).getDayOfMonth();
-		for(int row = 1; row < 8; row++) {
-			for(int col = 1; col < 7; col++) {
-				getLabelInGrid(grid, row, col).setText(String.valueOf(currentDay.getDayOfMonth()));
-				currentDay = currentDay.plusDays(1);
-					
+		boolean addSixthRow = currentDay.plusDays(34).getDayOfMonth() > 10;
+		String cssPath = GridDatesInitialiser.class.getClassLoader().getResource("css/fxstyle.css").toExternalForm();
+		for(int i = 7; i < 49; i++) {
+			StackPane stackPane = (StackPane) grid.getChildren().get(i);
+			stackPane.getStylesheets().add(cssPath);
+			stackPane.getStyleClass().clear();
+			
+			Label label = (Label) stackPane.getChildren().get(0);
+			label.getStylesheets().add(cssPath);
+			label.getStyleClass().clear();
+			
+			if(i > 41 && !addSixthRow) {
+				stackPane.getStyleClass().add("grid-stack-pane-sixth-row-empty");
+				label.setText("");
+			} else {
+				label.setText(String.valueOf(currentDay.getDayOfMonth()));
+				if(currentDay.getMonthValue() != month) {
+					label.getStyleClass().add("label-different-month");
+				}
 			}
+			currentDay = currentDay.plusDays(1);
 		}
-	}
-	
-	public static Label getLabelInGrid(GridPane grid, int row, int col) {
-		StackPane stackPane = (StackPane) grid.getChildren().get((6 * row) +  (col));
-		return (Label) stackPane.getChildren().get(0);
-//		label.getStylesheets().add(GridDatesInitialiser.class.getClassLoader().getResource("css/fxstyle.css").toExternalForm());
-//		label.getStyleClass().add("label-different-month");
 	}
 }
