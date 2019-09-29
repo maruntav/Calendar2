@@ -3,18 +3,18 @@
 }
 
 .grid-pane > * {
-	-fx-background-color: red;
+	-fx-background-color: inherit;
 }
 
 .grid-pane > *:hover {
-	-fx-background-color: blue;
+	-fx-border-color: pink;
 }
 
 .grid-pane > *, .month-label{
 	-fx-text-fill: #fcffd7;
 }
 
-.first-row-days-of-week {
+.first-row-days-of-week > * {
 	-fx-text-fill: white;
 }
 
@@ -34,4 +34,16 @@
 
 .grid-day-row > * > * {
 	-fx-alignment: center;
+}
+
+.grid-stack-pane-today {
+	-fx-background-color: #1ecbe1;
+	-fx-border-color: #caf1f8;
+}
+
+.grid-stack-pane-today > * {
+}
+
+.first-row-days-of-week:hover {
+	-fx-border-color: inherit;
 }

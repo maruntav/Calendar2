@@ -1,0 +1,15 @@
+.root-pane {
+	-fx-background-color: grey;
+}
+
+.add-event-label {
+	-fx-text-fill: white;
+}
+
+.add-event-text-field {
+	
+}
+
+.add-event-title {
+	-fx-text-fill: white;
+}

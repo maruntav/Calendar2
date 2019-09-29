@@ -8,10 +8,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 
 public class GridDatesInitialiser {
-	public static void addDaysToGrid(Pane monthsPane[], int month, int year) {
-		addDayToGrid(monthsPane[0], month, year);
-	}
-	
 	public static void addDayToGrid(Pane pane, int month, int year) {
 		GridPane grid = (GridPane) pane.getChildren().get(0);
 		MonthInfo monthInfo = new MonthInfo(month, year);
@@ -32,9 +28,16 @@ public class GridDatesInitialiser {
 				label.setText("");
 			} else {
 				label.setText(String.valueOf(currentDay.getDayOfMonth()));
-				if(currentDay.getMonthValue() != month) {
-					label.getStyleClass().add("label-different-month");
+				int monthofDate = currentDay.getMonthValue();
+				if(monthofDate != month) {
+					label.getStyleClass().addAll("label-different-month", 
+							monthofDate < month ? "label-previous-month" : "label-next-month");
 				}
+			}
+			
+			if(currentDay.equals(LocalDate.now())) {
+				stackPane.getStyleClass().add("grid-stack-pane-today");
+				label.getStyleClass().clear();
 			}
 			currentDay = currentDay.plusDays(1);
 		}

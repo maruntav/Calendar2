@@ -22,8 +22,7 @@ public class MonthInfo {
 	}
 	
 	public String getMonthName() {
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MMMM");
-		return date.format(dateTimeFormatter);
+		return date.format(DateTimeFormatter.ofPattern("MMMM"));
 	}
 	
 	public int getNumOfDays() {

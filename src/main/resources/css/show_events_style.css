@@ -1,0 +1,22 @@
+.text-field {
+	-fx-background-color: inherit;
+	-fx-border-color: inherit;
+}
+
+.text-field:hover {
+	-fx-cursor: default;
+}
+
+.text-field-editable:focused {
+	-fx-border-color: grey;
+	-fx-cursor: text;
+}
+
+
+.event-vbox {
+	-fx-background-color: white;
+}
+
+.exit-button {
+	-fx-border-color: black;
+}

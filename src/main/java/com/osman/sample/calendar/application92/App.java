@@ -1,5 +1,7 @@
 package com.osman.sample.calendar.application92;
 
+import com.osman.sample.calendar.application92.sqlite.SQLiteConnection;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,6 +11,7 @@ import javafx.stage.Stage;
 public class App extends Application 
 {
     public static void main( String[] args ) {
+    	com.osman.sample.calendar.application92.sqlite.SQLiteConnection sqLiteConnection = new SQLiteConnection(false);
     	launch(args);
     }
 
