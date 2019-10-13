@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 import org.junit.Test;
 
 public class ValidationTest {
-	@Test
+	/*@Test
 	public void testTimeValidation() {
 		AddEventController addEventController = new AddEventController();
 		//hour
@@ -36,5 +36,5 @@ public class ValidationTest {
 			.forEach(minute -> {
 				assertEquals(false, addEventController.timeIsValid("00", String.valueOf(minute)));
 			});
-	}
+	}*/
 }

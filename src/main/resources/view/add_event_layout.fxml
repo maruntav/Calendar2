@@ -18,24 +18,16 @@
       </Label>
       <Label layoutX="61.0" layoutY="98.0" styleClass="add-event-label" stylesheets="@../css/add_event_style.css" text="Event Name" />
       <TextField fx:id="eventNameInput" layoutX="161.0" layoutY="94.0" styleClass="add-event-text-field" stylesheets="@../css/add_event_style.css">
-         <effect>
-            <SepiaTone />
-         </effect></TextField>
+         </TextField>
       <Label layoutX="61.0" layoutY="134.0" styleClass="add-event-label" stylesheets="@../css/add_event_style.css" text="Time" />
       <TextField fx:id="timeHourInput" layoutX="171.0" layoutY="130.0" prefHeight="25.0" prefWidth="55.0" styleClass="add-event-text-field" stylesheets="@../css/add_event_style.css">
-         <effect>
-            <SepiaTone />
-         </effect></TextField>
+         </TextField>
       <Label layoutX="231.0" layoutY="134.0" styleClass="add-event-label" stylesheets="@../css/add_event_style.css" text=":" />
       <TextField fx:id="timeMinuteInput" layoutX="247.0" layoutY="130.0" prefHeight="25.0" prefWidth="55.0" styleClass="add-event-text-field" stylesheets="@../css/add_event_style.css">
-         <effect>
-            <SepiaTone />
-         </effect></TextField>
+         </TextField>
       <Label layoutX="61.0" layoutY="178.0" styleClass="add-event-label" stylesheets="@../css/add_event_style.css" text="Details" />
       <TextArea fx:id="detailsInput" layoutX="149.0" layoutY="175.0" prefHeight="61.0" prefWidth="283.0" styleClass="add-event-text-area" stylesheets="@../css/add_event_style.css">
-         <effect>
-            <SepiaTone />
-         </effect>
+         
       </TextArea>
       <Button layoutX="136.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#addEventButtonClick" text="Add Event">
          <effect>

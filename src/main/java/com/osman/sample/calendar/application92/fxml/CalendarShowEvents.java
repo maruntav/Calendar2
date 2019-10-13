@@ -10,7 +10,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class CalendarShowEvents {
-	public static void showEvents(Pane rootNode, LocalDate date, ArrayList<Event> events) {
+	public static void showEvents(Pane rootNode, LocalDate date, ArrayList<Event> events, Pane addEventPane) {
     	if(!date.equals(CurrentDateClick.CURRENT_DATE)) {
     		return;
     	}
@@ -24,6 +24,9 @@ public class CalendarShowEvents {
 //		((VBox)showEventsUI.getContent()).getChildren().stream()
 //			.filter(node -> node instanceof VBox)
 //			.forEach(node -> ((VBox)node).getChildren().get(6));
+		if(addEventPane != null) {
+			rootNode.getChildren().remove(addEventPane);
+		}
 		rootNode.getChildren().add(showEventsUI);
     	
     }

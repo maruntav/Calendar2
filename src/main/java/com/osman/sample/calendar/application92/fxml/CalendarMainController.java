@@ -1,7 +1,6 @@
 package com.osman.sample.calendar.application92.fxml;
 
 import javafx.animation.TranslateTransition;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -10,9 +9,8 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.util.*;
-import javafx.scene.*;
 
-import java.awt.Checkbox;
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -23,9 +21,6 @@ import com.osman.sample.calendar.application92.dto.Event;
 import com.osman.sample.calendar.application92.date.*;
 import com.osman.sample.calendar.application92.sqlite.EditEvent;
 import com.osman.sample.calendar.application92.sqlite.SQLiteConnection;
-import com.sun.javafx.scene.control.skin.LabeledText;
-import javafx.scene.control.Labeled;
-import javafx.scene.control.ScrollPane;
 
 public class CalendarMainController {
 
@@ -75,7 +70,6 @@ public class CalendarMainController {
     @FXML
     private Pane monthAfterPane;
     
-    private ScrollPane showEventsPane;
     private Pane addEventPane;
     private int currentMonth;
     private int currentYear;
@@ -84,7 +78,6 @@ public class CalendarMainController {
     public CalendarMainController() {
     	try {
 			addEventPane = FXMLLoader.load(getClass().getResource("/view/add_event_layout.fxml"));
-			showEventsPane = FXMLLoader.load(getClass().getResource("/view/show_events_layout.fxml"));
 			showEventsCss = getClass().getResource("/css/show_events_style.css").toExternalForm();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -130,19 +123,11 @@ public class CalendarMainController {
 
     @FXML
     void onStackPaneDayClick(MouseEvent mouseEvent) {
-    	Label label;
-    	StackPane stackPane;
-    	if(mouseEvent.getTarget() instanceof LabeledText) {
-    		label = (Label)((LabeledText) mouseEvent.getTarget()).getParent();
-    	} else if(mouseEvent.getTarget() instanceof Label) {
-    		label = (Label) mouseEvent.getTarget();
-    	} else {
-    		if(((StackPane) mouseEvent.getTarget()).getStyleClass().toString() == "grid-stack-pane-sixth-row-empty") {
-    			return;
-    		}
-    		label = (Label)((StackPane) mouseEvent.getTarget()).getChildren().get(0);
+    	StackPane stackPane = (StackPane) mouseEvent.getTarget();
+    	if(stackPane.getStyleClass().toString() == "grid-stack-pane-sixth-row-empty") {
+    		return;
     	}
-    	
+    	Label label = (Label)stackPane.getChildren().get(0);
     	LocalDate date;
     	if(label.getStyleClass().contains("label-different-month")) {
     		boolean previousMonth = label.getStyleClass().contains("label-previous-month");
@@ -155,7 +140,7 @@ public class CalendarMainController {
     	EditEvent editEvent = new EditEvent(new SQLiteConnection(false).getConnection());
     	ArrayList<Event> events = editEvent.getEventsForDay(date);
     	if(!events.isEmpty()) {
-    		CalendarShowEvents.showEvents(rootNode, date, events);
+    		CalendarShowEvents.showEvents(rootNode, date, events, null);
     	} else {
     		rootNode.getChildren().add(addEventPane);
     	}

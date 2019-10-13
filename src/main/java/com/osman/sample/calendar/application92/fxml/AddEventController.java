@@ -3,7 +3,6 @@ package com.osman.sample.calendar.application92.fxml;
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.*;
-import java.util.stream.*;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -39,17 +38,18 @@ public class AddEventController {
 
     @FXML
     void addEventButtonClick(MouseEvent event) {
-    	if(noEmptyFields() && timeIsValid(timeHourInput.getText(), timeMinuteInput.getText())) {
+    	if(noEmptyFields() && TimeValidation.timeIsValid(timeHourInput.getText(), timeMinuteInput.getText())) {
     		EditEvent editEvent = new EditEvent(new SQLiteConnection(false).getConnection());
         	editEvent.addEvent(eventNameInput.getText(), detailsInput.getText(), 
         			CurrentDateClick.CURRENT_DATE, 
         			LocalTime.of(Integer.valueOf(timeHourInput.getText()), Integer.valueOf(timeMinuteInput.getText())));
-//        	Arrays.asList(new TextInputControl[] {timeHourInput, timeMinuteInput, eventNameInput, detailsInput})
-//        				.stream()
-//        				.forEach(field -> field.clear());
+        	Arrays.asList(new TextInputControl[] {timeHourInput, timeMinuteInput, eventNameInput, detailsInput})
+        				.stream()
+        				.forEach(field -> field.clear());
         	editEvent = new EditEvent(new SQLiteConnection(false).getConnection());
         	ArrayList<Event> events = editEvent.getEventsForDay(CurrentDateClick.CURRENT_DATE);
-        	CalendarShowEvents.showEvents((Pane)addEventRootPane.getParent(), CurrentDateClick.CURRENT_DATE, events);
+        	CalendarShowEvents.showEvents((Pane)addEventRootPane.getParent(), CurrentDateClick.CURRENT_DATE, events, addEventRootPane);
+        	
     	} else {
     		//display message
     	}
@@ -64,23 +64,25 @@ public class AddEventController {
     void initialize() {
         assert addEventRootPane != null : "fx:id=\"addEventRootPane\" was not injected: check your FXML file 'add_event_layout.fxml'.";
         List<TextField> timeFields = Arrays.asList(new TextField[] {timeHourInput, timeMinuteInput});
+        List<TextInputControl> textFields = Arrays.asList(new TextInputControl[] {eventNameInput, timeHourInput, timeMinuteInput, detailsInput});
         timeFields.stream().forEach(input -> {
         	input.textProperty().addListener((observable, oldValue, newValue) -> {
-        		if(!hourOrMinuteValid(newValue)) {
+        		if(!TimeValidation.hourOrMinuteValid(newValue)) {
         			input.setText(oldValue);
         		}
         	});
         });
-    }
-    
-    public boolean hourOrMinuteValid(String newValue) {
-    	if(newValue.length() > 2) {
-    		return false;
-    	} else if(newValue.length() == 0) {
-    		return true;
-    	}
-    	return !Arrays.asList(newValue.split("")).stream()
-    			.filter(str -> !Character.isDigit(str.charAt(0))).findFirst().isPresent();
+        textFields.stream().forEach(input -> {
+        	input.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        		if(newValue) {
+        			TextFieldErrorBorder.removeRedBorder(input);
+        		} else {
+        			if(input.getText().isEmpty()) {
+        				TextFieldErrorBorder.wrapTextFieldWithRedBorder(input);
+        			}
+        		}
+        	});
+        });
     }
     
     public boolean noEmptyFields() {
@@ -88,15 +90,5 @@ public class AddEventController {
     			!detailsInput.getText().isEmpty() &&
     			!timeHourInput.getText().isEmpty() &&
     			!timeHourInput.getText().isEmpty();
-    }
-    
-    public boolean timeIsValid(String hour, String minute) {
-    	int hourVal = Integer.valueOf(hour);
-    	int minuteVal = Integer.valueOf(minute);
-    	if(hourVal < 0 || hourVal > 23)
-    		return false;
-    	else if(minuteVal < 0 || minuteVal > 59)
-    		return false;
-    	return true;
     }
 }

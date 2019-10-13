@@ -12,6 +12,9 @@
 	-fx-cursor: text;
 }
 
+.text-field-error {
+	-fx-border-color: red;
+}
 
 .event-vbox {
 	-fx-background-color: white;

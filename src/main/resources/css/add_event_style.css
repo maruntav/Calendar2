@@ -10,6 +10,10 @@
 	
 }
 
+.text-field-error {
+	-fx-border-color: red;
+}
+
 .add-event-title {
 	-fx-text-fill: white;
 }

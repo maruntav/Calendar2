@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 
+import com.osman.sample.calendar.application92.date.TimeValidation;
 import com.osman.sample.calendar.application92.dto.Event;
 import com.osman.sample.calendar.application92.sqlite.*;
 
@@ -34,6 +35,7 @@ public class ShowEventsUI extends ScrollPane {
 		super();
 		this.cssFile = cssFile;
 		rootVbox = new VBox(10);
+		setPrefWidth(520);
 		rootVbox.setPrefSize(500, 350);
 		initialiseVbox();
 		setLayoutX(75);
@@ -56,9 +58,9 @@ public class ShowEventsUI extends ScrollPane {
 		hbox.getStylesheets().add(cssFile);
 		hbox.setAlignment(Pos.CENTER_RIGHT);
 		addNewEventButton = new Button("Add New Event");
-		addNewEventButton.setOnAction(actionEvent -> addNewEventButtonClick(actionEvent));
+		addNewEventButton.setOnAction(this::addNewEventButtonClick);
 		selectEvents = new Button("Select Events");
-		selectEvents.setOnAction(actionEvent -> selectEventsButtonClick(actionEvent));
+		selectEvents.setOnAction(this::selectEventsButtonClick);
 		Label exit = new Label("✖");
 		exit.getStylesheets().add(cssFile);
 		exit.getStyleClass().add("exit-button");
@@ -66,8 +68,14 @@ public class ShowEventsUI extends ScrollPane {
 		hbox.getChildren().addAll(addNewEventButton, selectEvents, exit);
 		
 		deleteEvents = new Button("Delete Events");
-		deleteEvents.setOnAction(actionEvent -> {
-			List<VBox> selectedEvents = rootVbox.getChildren().stream()
+		deleteEvents.setOnAction(this::handleDeleteEventsClick);
+		
+		exit.setOnMouseClicked(mouseEvent -> ((Pane)getParent()).getChildren().remove(this));
+		return hbox;
+	}
+	
+	public void handleDeleteEventsClick(ActionEvent actionEvent) {
+		List<VBox> selectedEvents = rootVbox.getChildren().stream()
 				.filter(node -> {
 					if(node instanceof VBox && ((VBox)node).getChildren().get(0) instanceof HBox) {
 						CheckBox checkBox = (CheckBox)((HBox)((VBox)node).getChildren().get(0)).getChildren().get(0);
@@ -75,13 +83,9 @@ public class ShowEventsUI extends ScrollPane {
 					}
 					return false;
 				})
-				.map(node -> (VBox)node)
+				.map(VBox.class::cast)
 				.collect(Collectors.toList());
-			deleteSelectedEvents(selectedEvents);
-		});
-		
-		exit.setOnMouseClicked(mouseEvent -> ((Pane)getParent()).getChildren().remove(this));
-		return hbox;
+		deleteSelectedEvents(selectedEvents);
 	}
 	
 	public void deleteSelectedEvents(List<VBox> selectedEvents) {
@@ -90,13 +94,21 @@ public class ShowEventsUI extends ScrollPane {
 			Label label = (Label)selectedEvent.getChildren().stream().filter(node -> node instanceof Label).findFirst().get();
 			int eventid = Integer.valueOf(label.getText());
 			editEvent.deleteEvent(eventid);
-//			rootVbox.getChildren().remove(selectedEvent);
-			
+			rootVbox.getChildren().remove(selectedEvent);
 		});
-	} 
+		int eventCount = rootVbox.getChildren().stream()
+				.filter(VBox.class::isInstance)
+				.collect(Collectors.toList()).size();
+		if(eventCount == 0) {
+			showAddEventPane();
+		}
+	}
 	
 	public void addNewEventButtonClick(ActionEvent actionEvent) {
-		System.out.println("add new click");
+		showAddEventPane();
+	}
+	
+	public void showAddEventPane() {
 		Pane root = (Pane) getParent();
 		root.getChildren().remove(this);
 		root.getChildren().add(addEventPane);
@@ -126,7 +138,7 @@ public class ShowEventsUI extends ScrollPane {
 	public void toggleDeleteEvents(boolean newState) {
 		rootVbox.getChildren()
 		.stream()
-		.filter(node -> node instanceof VBox)
+		.filter(VBox.class::isInstance)
 		.forEach(node -> {
 			if(!newState) {
 				ObservableList<Node> nodeChildren = ((VBox)node).getChildren();
@@ -187,26 +199,77 @@ public class ShowEventsUI extends ScrollPane {
 				textField.getStyleClass().addAll("text-field", "text-field-editable");
 				textField.setOnMouseClicked(mouseEvent -> {
 					changeEvent(vBox);
-					if(!vBox.getChildren().contains(editButtonsHbox) && textField.isEditable())
+					if(!vBox.getChildren().contains(editButtonsHbox) && textField.isEditable()) {
 						vBox.getChildren().add(editButtonsHbox);
+					}
 				});
 			});
+		
+		textFields.stream().forEach(field -> {
+			field.focusedProperty().addListener((overservable, oldValue, newValue) -> {
+				if(newValue) {
+					TextFieldErrorBorder.removeRedBorder(field);
+				} else {
+					boolean isTimeField = field == labelTime;
+					if(isTimeField) 
+						handleTimeTextFieldUnfocus(field); 
+					checkIfFieldIsEmpty(field, isTimeField);
+				}
+			});
+		});
 		
 
 		cancelChanges.setOnAction(actionEvent -> {
 			vBox.getChildren().remove(editButtonsHbox);
+			textFields.stream().forEach(TextFieldErrorBorder::removeRedBorder);
 			setTextFieldsInEvent(event, labelTitle, labelDetails, labelTime);
-			//just refresh - select where id=bla (original data)
+		});
+		
+		labelTime.textProperty().addListener((oversable, oldValue, newValue) -> {
+			if(!TimeValidation.timeFormatValid(newValue)) {
+				labelTime.setText(oldValue);
+			} else {
+				List<String> times = Arrays.asList(newValue.split(":"));
+				boolean isValid = !times.stream()
+						.filter(val -> !TimeValidation.hourOrMinuteValid(val)).findFirst().isPresent();
+				if(!isValid) {
+					labelTime.setText(oldValue);
+				}
+			}
 		});
 		editSubmitButton.setOnAction(actionEvent -> {
-			Event inEvent = new Event(event.getId(), event.getDate(), event.getTime(), "new title", "updated details");
+			Event inEvent = new Event(event.getId(), event.getDate(), labelTime.getText(), labelTitle.getText(), labelDetails.getText());
 			EditEvent editEvent = new EditEvent(new SQLiteConnection(false).getConnection());
 			editEvent.editEvent(inEvent);
 			vBox.getChildren().remove(editButtonsHbox);
-			//update query and refresh (updated data)
 		});
 		
 		return vBox;
+	}
+	
+
+	
+	public void checkIfFieldIsEmpty(TextField field, boolean timeField) {
+		String text = field.getText();
+		if(timeField) {
+			boolean valid = Arrays.asList(text.split(":")).stream()
+				.filter(val -> !val.equals(""))
+				.collect(Collectors.toList()).size() == 2;
+			if(!valid)
+				TextFieldErrorBorder.wrapTextFieldWithRedBorder(field);
+		} else if(text.equals("")) {
+			TextFieldErrorBorder.wrapTextFieldWithRedBorder(field);
+		}
+	}
+	
+	public void handleTimeTextFieldUnfocus(TextField field) {
+		String[] timesArr = field.getText().split(":");
+		String modified = "";
+		for(int i = 0; i < timesArr.length; i++) {
+			modified += timesArr[i].length() == 1 ? "0" + timesArr[i] : timesArr[i];
+			if(i == 0) modified += ":";
+		}
+		field.setText(modified);
 	}
 	
 	public void setTextFieldsInEvent(Event event, TextField title, TextField details, TextField time) {
