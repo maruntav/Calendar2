@@ -33,7 +33,7 @@
          <effect>
             <DropShadow color="#95cded" />
          </effect></Button>
-      <Button layoutX="273.0" layoutY="248.0" mnemonicParsing="false" onMouseExited="#exitButtonClick" text="Exit">
+      <Button layoutX="273.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#exitButtonClick" text="Exit">
          <effect>
             <DropShadow color="#95cded" />
          </effect></Button>
